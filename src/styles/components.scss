@@ -24,16 +24,29 @@ section {
   padding: 0.25rem 0.75rem;
   cursor: pointer;
   font-weight: 500;
-  transition: all 200ms;
+  transition: all 50ms;
   height: 2.5rem;
   font-size: 0.9rem;
-  background-color: $light-100;
-  color: $primary-400;
+  font-weight: 600;
+
+  &--light {
+    background-color: $light-100;
+    color: $primary-400;
+  }
+
+  &--error {
+    background-color: $error-500;
+    color: $light-100;
+  }
+
+  &--primary {
+    color: $light-100;
+    background-color: $primary-400;
+  }
 
   &:hover {
-    background-color: $primary-400;
-    border: 1px solid $light-100;
-    color: $light-100;
+    transform: scale(1.025);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   }
 }
 

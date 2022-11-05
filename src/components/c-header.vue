@@ -7,8 +7,12 @@
       </div>
       <div class="header__item">
         <input class="input" type="text" placeholder="Pesquisar..." />
-        <button class="button">
-          <plus-circle-icon stroke-width="1" />
+        <button @click.self="handleOpenModal" class="button button--light">
+          <plus-circle-icon
+            stroke-width="1"
+            stroke="#e3e3e3"
+            fill="currentColor"
+          />
           Novo
         </button>
       </div>
@@ -22,8 +26,8 @@ import { PlusCircleIcon } from "vue-feather-icons";
 
 export default Vue.extend({
   props: {
-    handleCreate: Function,
     handleSearch: Function,
+    handleOpenModal: Function,
   },
   components: { PlusCircleIcon },
 });
