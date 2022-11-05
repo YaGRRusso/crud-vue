@@ -1,0 +1,53 @@
+@import "./colors.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+.container,
+section {
+  all: inherit;
+  max-width: 1220px;
+  width: 85vw;
+  margin: 0 auto;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 200ms;
+  height: 2.5rem;
+  font-size: 0.9rem;
+  background-color: $light-100;
+  color: $primary-400;
+
+  &:hover {
+    background-color: $primary-400;
+    border: 1px solid $light-100;
+    color: $light-100;
+  }
+}
+
+.input {
+  border-radius: 0.5rem;
+  border: 1px solid $light-100;
+  background-color: transparent;
+  color: $light-100;
+  padding: 0.25rem 0.75rem;
+  height: 2.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  &::placeholder {
+    color: $light-100;
+  }
+}
