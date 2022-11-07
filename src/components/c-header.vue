@@ -6,7 +6,12 @@
         <h1 class="header__title">Cadastro CRUD</h1>
       </div>
       <div class="header__item">
-        <input class="input" type="text" placeholder="Pesquisar..." />
+        <input
+          v-model="searchValue"
+          class="input"
+          type="text"
+          placeholder="Pesquisar..."
+        />
         <button @click.self="handleOpenModal" class="button button--light">
           <plus-circle-icon
             stroke-width="1"
@@ -26,10 +31,20 @@ import { PlusCircleIcon } from "vue-feather-icons";
 
 export default Vue.extend({
   props: {
-    handleSearch: Function,
     handleOpenModal: Function,
+    handleSearch: Function,
+  },
+  data() {
+    return {
+      searchValue: "",
+    };
   },
   components: { PlusCircleIcon },
+  watch: {
+    searchValue(ev) {
+      this.handleSearch(ev);
+    },
+  },
 });
 </script>
 

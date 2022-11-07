@@ -4,13 +4,14 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
+  line-height: 1;
 }
 
 .container,
 section {
   all: inherit;
   max-width: 1220px;
-  width: 85vw;
+  width: 90vw;
   margin: 0 auto;
 }
 
@@ -21,13 +22,18 @@ section {
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.75rem;
   cursor: pointer;
   font-weight: 500;
   transition: all 50ms;
   height: 2.5rem;
   font-size: 0.9rem;
   font-weight: 600;
+
+  &--sm {
+    height: 2rem;
+    padding: 0.25rem;
+  }
 
   &--light {
     background-color: $light-100;

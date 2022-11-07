@@ -6,18 +6,40 @@
   >
     <div class="modal">
       <div class="modal__header">
-        <span class="modal__title">Title</span>
+        <span class="modal__title">{{ modalTitle }}</span>
         <x-icon @click.self="handleCloseModal" class="modal__close" />
       </div>
-      <div class="modal__body">Body</div>
-      <div class="modal__footer">
-        <button @click.self="handleCloseModal" class="button button--error">
-          Cancelar
-        </button>
-        <button @click.self="handleSubmitModal" class="button button--primary">
-          Salvar
-        </button>
-      </div>
+      <form @submit.prevent="handleSubmitModal">
+        <div class="modal__body">
+          <label
+            class="modal__label"
+            v-for="(input, inputKey, inputIndex) in modalInputs"
+            :key="'input' + inputIndex"
+          >
+            <span class="modal__label-text">
+              {{ input.label }}
+            </span>
+            <input
+              class="modal__input"
+              v-model="input.value"
+              placeholder="placeholder"
+              :type="input.type"
+              :required="input.required"
+              :disabled="input.disabled"
+            />
+          </label>
+        </div>
+        <div class="modal__footer">
+          <button
+            type="button"
+            @click.self="handleCloseModal"
+            class="button button--error"
+          >
+            Cancelar
+          </button>
+          <input type="submit" class="button button--primary" value="Salvar" />
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -28,9 +50,11 @@ import { XIcon } from "vue-feather-icons";
 
 export default Vue.extend({
   props: {
+    modalTitle: String,
     isModalOpen: Boolean,
     handleCloseModal: Function,
     handleSubmitModal: Function,
+    modalInputs: Object,
   },
   components: {
     XIcon,
@@ -49,6 +73,7 @@ export default Vue.extend({
   width: 100vw;
   height: 100vh;
   background-color: #00000050;
+  z-index: 5;
 }
 
 .modal {
@@ -57,10 +82,8 @@ export default Vue.extend({
   justify-content: space-between;
   align-items: stretch;
   background-color: $light-100;
-  min-width: 60vw;
-  max-width: 800px;
-  min-height: 75vh;
-  max-height: 800px;
+  width: 90vw;
+  max-width: 30rem;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   overflow: hidden;
@@ -70,7 +93,7 @@ export default Vue.extend({
     justify-content: space-between;
     align-items: center;
     background-color: $primary-400;
-    padding: 1rem;
+    padding: 2rem 1rem;
     color: $light-100;
     font-weight: 600;
   }
@@ -87,9 +110,46 @@ export default Vue.extend({
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex: 1;
-    padding: 1rem;
-    gap: 1rem;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: 25rem;
+  }
+
+  &__label-text {
+    font-weight: 500;
+    color: $primary-400;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid $primary-300;
+    padding: 0.5rem 0;
+    margin-top: -2rem;
+    transition: all 200ms;
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:active,
+    &:focus,
+    &:not(:placeholder-shown) {
+      margin-top: 0;
+    }
   }
 
   &__footer {
