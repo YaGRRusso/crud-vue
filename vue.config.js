@@ -1,6 +1,6 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: true,
-  publicPath: "/vue-crud/",
-  // publicPath: "",
+  // publicPath: "/vue-crud/",
+  publicPath: "",
 });
