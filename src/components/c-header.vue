@@ -3,7 +3,15 @@
     <div class="container">
       <div class="header__item">
         <img class="header__icon" src="../assets/logo.png" alt="logo" />
-        <h1 class="header__title">Cadastro CRUD</h1>
+        <div class="header__group">
+          <h1 class="header__title">Cadastro CRUD</h1>
+          <span class="header__theme" v-if="darkMode" @click="handleMode"
+            ><moon-icon fill="currentColor"
+          /></span>
+          <span class="header__theme" v-if="!darkMode" @click="handleMode"
+            ><sun-icon fill="currentColor"
+          /></span>
+        </div>
       </div>
       <div class="header__item">
         <input
@@ -27,19 +35,21 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { PlusCircleIcon } from "vue-feather-icons";
+import { PlusCircleIcon, MoonIcon, SunIcon } from "vue-feather-icons";
 
 export default Vue.extend({
   props: {
     handleOpenModal: Function,
     handleSearch: Function,
+    handleMode: Function,
+    darkMode: Boolean,
   },
   data() {
     return {
       searchValue: "",
     };
   },
-  components: { PlusCircleIcon },
+  components: { PlusCircleIcon, MoonIcon, SunIcon },
   watch: {
     searchValue(ev) {
       this.handleSearch(ev);
@@ -52,7 +62,7 @@ export default Vue.extend({
 @import "../styles/colors.scss", "../styles/components.scss";
 
 .header {
-  background-color: $primary-400;
+  background-color: var(--primary-400);
 
   .container {
     min-height: 16rem;
@@ -60,7 +70,7 @@ export default Vue.extend({
     padding-bottom: 4rem;
     justify-content: space-between;
     align-items: center;
-    color: $light-100;
+    color: var(--light-100);
 
     @media (max-width: 768px) {
       gap: 0.5rem;
@@ -77,6 +87,17 @@ export default Vue.extend({
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__theme {
+    cursor: pointer;
   }
 
   &__icon {

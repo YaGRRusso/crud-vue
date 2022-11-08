@@ -81,7 +81,7 @@ export default Vue.extend({
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  background-color: $light-100;
+  background-color: var(--white);
   width: 90vw;
   max-width: 30rem;
   border-radius: 0.5rem;
@@ -92,9 +92,9 @@ export default Vue.extend({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $primary-400;
+    background-color: var(--primary-400);
     padding: 2rem 1rem;
-    color: $light-100;
+    color: var(--light-100);
     font-weight: 600;
   }
 
@@ -128,18 +128,19 @@ export default Vue.extend({
 
   &__label-text {
     font-weight: 500;
-    color: $primary-400;
+    color: var(--primary-400);
   }
 
   &__input {
     width: 100%;
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid $primary-300;
+    border-bottom: 2px solid var(--primary-300);
     padding: 0.5rem 0;
     margin-top: -2rem;
     transition: all 200ms;
     outline: none;
+    color: var(--black);
 
     &::placeholder {
       color: transparent;

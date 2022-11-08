@@ -98,7 +98,7 @@ export default Vue.extend({
   max-height: calc(100vh - 14rem);
   display: flex;
   margin-top: -4rem;
-  background-color: $white;
+  background-color: var(--white);
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   overflow: auto;
@@ -110,11 +110,11 @@ export default Vue.extend({
 
   &__head {
     th {
-      border-bottom: 1px solid $light-100;
+      border-bottom: 1px solid var(--light-100);
       text-align: left;
-      padding: 1.25rem 0.75rem;
+      padding: 1.75rem 0.75rem;
       margin-bottom: 1rem;
-      color: $primary-500;
+      color: var(--primary-500);
       font-size: 1.25rem;
       font-weight: 500;
     }
@@ -145,17 +145,17 @@ export default Vue.extend({
 
     tr {
       &:hover {
-        background-color: $light-050;
+        background-color: var(--light-050);
       }
     }
 
     &--mobile {
       display: none;
-      color: $dark-700;
+      color: var(--dark-700);
 
       tr {
         &:nth-child(even) {
-          background-color: $light-050;
+          background-color: var(--light-050);
         }
       }
     }

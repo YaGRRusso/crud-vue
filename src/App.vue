@@ -17,6 +17,8 @@
     <c-header
       :handleOpenModal="handleOpenModal"
       :handleSearch="handleSearchUsers"
+      :darkMode="darkMode"
+      :handleMode="handleChangeMode"
     />
     <c-table
       :handleDelete="handleDeleteUser"
@@ -37,6 +39,7 @@ import UsersMockup from "../mock/users";
 export default Vue.extend({
   data() {
     return {
+      darkMode: true,
       isModalOpen: false,
       isEditModalOpen: false,
       modalInputs: {
@@ -66,6 +69,10 @@ export default Vue.extend({
   methods: {
     handleOpenModal() {
       this.isModalOpen = true;
+    },
+    handleChangeMode() {
+      document.documentElement.classList.toggle("dark");
+      this.darkMode = !this.darkMode;
     },
     handleOpenEditModal(user: any) {
       this.editModalInputs = {
@@ -179,6 +186,7 @@ body {
   margin: 0;
   padding: 0;
   padding-bottom: 2rem;
-  color: $dark-900;
+  color: var(--dark-900);
+  background-color: var(--white);
 }
 </style>

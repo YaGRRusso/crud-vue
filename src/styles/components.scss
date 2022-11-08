@@ -36,18 +36,18 @@ section {
   }
 
   &--light {
-    background-color: $light-100;
-    color: $primary-400;
+    background-color: var(--light-100);
+    color: var(--primary-400);
   }
 
   &--error {
-    background-color: $error-500;
-    color: $light-100;
+    background-color: var(--error-500);
+    color: var(--light-100);
   }
 
   &--primary {
-    color: $light-100;
-    background-color: $primary-400;
+    color: var(--light-100);
+    background-color: var(--primary-400);
   }
 
   &:hover {
@@ -58,15 +58,15 @@ section {
 
 .input {
   border-radius: 0.5rem;
-  border: 1px solid $light-100;
+  border: 1px solid var(--light-100);
   background-color: transparent;
-  color: $light-100;
+  color: var(--light-100);
   padding: 0.25rem 0.75rem;
   height: 2.5rem;
   font-weight: 500;
   font-size: 0.9rem;
 
   &::placeholder {
-    color: $light-100;
+    color: var(--light-100);
   }
 }
